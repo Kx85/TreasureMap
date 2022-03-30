@@ -34,6 +34,7 @@ void processLine(std::string line, TreasureMap& map) {
 	l_line.erase(std::remove_if(l_line.begin(),l_line.end(),isspace), l_line.end());
 
 	int l_column = -1, l_row = -1, l_treasure = -1;
+	std::string l_name, l_sequence, l_orientation;
 	std::vector<std::string> out;
 	const char delim = '-';
 
@@ -73,7 +74,6 @@ void processLine(std::string line, TreasureMap& map) {
 		break;
 
 	case 'A':
-		std::string l_name, l_sequence, l_orientation;
 		tokenize(l_line, delim, out);
 		l_name = out.at(1);
 		l_column = std::stoi(out.at(2));
@@ -90,7 +90,10 @@ void processLine(std::string line, TreasureMap& map) {
 			throw std::exception("Invalid adventurer");
 
 		}
+	case '#':
 		break;
+	default:
+		throw std::exception("Bad syntax in file");
 	}
 }
 

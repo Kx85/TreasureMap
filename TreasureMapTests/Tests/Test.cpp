@@ -19,7 +19,7 @@ void testSingleTile() {
 
 	const std::string map = reader->displayTMapFile();
 
-	ASSERT(reader->displayTMapFile(), "C - 1 - 1\n");
+	ASSERT(reader->displayTMapFile(), "# This is a file even with a comment\nC - 1 - 1\n");
 
 	delete reader;
 }
